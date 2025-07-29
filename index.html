@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Micro Habit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Daily Micro Habit</h1>
+        <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch">
+            <label for="theme-switch" class="toggle-label">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-step" data-step="1"></div>
+                <div class="progress-step" data-step="2"></div>
+                <div class="progress-step" data-step="3"></div>
+                <div class="progress-step" data-step="4"></div>
+                <div class="progress-step" data-step="5"></div>
+                <div class="progress-step" data-step="6"></div>
+                <div class="progress-step" data-step="7"></div>
+            </div>
+            <p class="progress-text">Progress: <span id="progress-count">0</span>/7</p>
+        </div>
+
+        <div class="habit-container" id="habit-container">
+            <div class="habit-card">
+                <h2>Today's Micro Habit</h2>
+                <p class="habit-text" id="habit-text">Click the button below to get your first micro habit!</p>
+            </div>
+        </div>
+
+        <div class="quote-container">
+            <blockquote class="quote" id="quote-text">
+                "The journey of a thousand miles begins with one step."
+            </blockquote>
+        </div>
+
+        <button class="habit-button" id="habit-button">Show Another Habit</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Daily Micro Habit. Build better habits, one micro step at a time.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

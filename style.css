@@ -1,0 +1,368 @@
+/* CSS Variables for Light and Dark Themes */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #F39C12;
+    --background-color: #FFFFFF;
+    --surface-color: #F8F9FA;
+    --text-color: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --border-color: #E9ECEF;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary-color: #5DADE2;
+    --secondary-color: #F4D03F;
+    --background-color: #1A1A2E;
+    --surface-color: #16213E;
+    --text-color: #EAECEE;
+    --text-secondary: #BDC3C7;
+    --border-color: #2C3E50;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: var(--transition);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 100;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: relative;
+}
+
+#theme-switch {
+    display: none;
+}
+
+.toggle-label {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background-color: var(--border-color);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+#theme-switch:checked + .toggle-label {
+    background-color: var(--primary-color);
+}
+
+#theme-switch:checked + .toggle-label .toggle-slider {
+    transform: translateX(30px);
+    background-color: var(--background-color);
+}
+
+/* Main Container */
+.container {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: 3px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    position: relative;
+}
+
+.progress-step::after {
+    content: attr(data-step);
+    font-size: 0.9rem;
+}
+
+.progress-step.completed {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-text {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Habit Container Styles */
+.habit-container {
+    display: flex;
+    justify-content: center;
+}
+
+.habit-card {
+    background-color: var(--surface-color);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.habit-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.habit-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.habit-text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Quote Styles */
+.quote-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-left: 4px solid var(--secondary-color);
+    background-color: var(--surface-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    transition: var(--transition);
+}
+
+/* Button Styles */
+.habit-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    margin: 1rem auto;
+    display: block;
+    min-width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.habit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.habit-button:active {
+    transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40%, 43% {
+        transform: translateY(-10px);
+    }
+    70% {
+        transform: translateY(-5px);
+    }
+    90% {
+        transform: translateY(-2px);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 0.8s ease-in-out;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--surface-color);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .habit-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .habit-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .habit-text {
+        font-size: 1.1rem;
+    }
+
+    .progress-step {
+        width: 35px;
+        height: 35px;
+    }
+
+    .progress-step::after {
+        font-size: 0.8rem;
+    }
+
+    .habit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+        min-width: 180px;
+    }
+
+    .quote {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bar {
+        gap: 0.3rem;
+    }
+
+    .progress-step {
+        width: 30px;
+        height: 30px;
+    }
+
+    .progress-step::after {
+        font-size: 0.7rem;
+    }
+
+    .habit-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .habit-text {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
